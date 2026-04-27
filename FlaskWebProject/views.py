@@ -127,8 +127,6 @@ def _build_msal_app(cache=None, authority=None):
         client_credential=Config.CLIENT_SECRET, token_cache=cache)
 
 def _build_auth_url(authority=None, scopes=None, state=None):
-    # Hier wurde der Name der Funktion von get_authorization_url 
-    # zu get_authorization_request_url geändert:
     return _build_msal_app(authority=authority).get_authorization_request_url(
         scopes or [],
         state=state or session.get("state"),
